@@ -116,13 +116,108 @@
 </script>
 
 <%--id중복, 비밀번호 확인 유효성 검사 처리 --%>
-<script type="text/javascript">
-	$(function() {
-		var idCheck = false;
-		var pwCheck = false;
-	});
-</script>
+<script>
+var path = "${pageContext.request.contextPath }";
+ 
+$(document).ready(function() {
+	var msg = "${msg}";
+	if(msg != ""){
+	alert(msg);    
+	}
+});
+ 
+ 
+function fnSubmit() {
+	<%-- email 형식 지정 --%> 
+	var email_rule =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
+	<%-- 아이디 공백 확인 --%>
+	if ($("#memId").val() == null || $("#memId").val() == "") {
+		alert("아이디를 입력해주세요.");
+		$("#memId").focus();
+	 
+		return false;
+	}
+
+	<%-- 비밀번호1  입력 확인 --%>
+	if ($("#passwd1").val() == "" && $("#passwd1").val() != "") {
+		alert("비밀번호를 입력해주세요.");
+		$("#passwd1").focus();
+	 
+		return false;
+	}
+	
+	<%-- 비밀번호2  입력 확인 --%> 
+	if ($("#passwd2").val() != "" && $("#passwd2").val() == "") {
+		alert("비밀번호 확인을 입력해주세요.");
+		$("#passwd2").focus();
+		 
+		return false;
+	}	
+	
+	
+	<%-- 이름 공백 확인 --%>
+	if ($("#memName").val() == null || $("#memName").val() == "") {
+		alert("이름을 입력해주세요.");
+		$("#memName").focus();
+	 
+		return false;
+	}
+	
+	<%-- 성별 공백 확인 --%>
+	if($('[name="gender"]:checked').length == 0){
+		alert('성별을 입력하세요');
+		return;
+	}
+	
+	<%-- 이메일 공백 확인 --%> 
+	if ($("#email").val() == null || $("#email").val() == "") {
+		alert("이메일을 입력해주세요.");
+		$("#email").focus();
+	 
+		return false;
+	}
+	
+	<%-- 이메일 형식 확인 --%>
+	if(!email_rule.test($("#email").val())){
+		alert("이메일을 형식에 맞게 입력해주세요.");
+
+		return false;
+	}
+	
+	<%-- 주소api 공백 확인 --%>
+	if ($("#postcode").val() == null || $("#postcode").val() == "") {
+		alert("주소 검색 버튼을 통해 주소를 입력해주세요.");
+		$("#postcode").focus();
+	 
+		return false;
+	}
+
+	<%-- 주소api 공백 확인 --%>
+	if ($("#extraAddress").val() == null || $("#extraAddress").val() == "") {
+		alert("상세 주소를 입력해주세요.");
+		$("#extraAddress").focus();
+	 
+		return false;
+	}
+	
+	<%-- 비밀번호 1,2  일치 확인 --%> 
+	if ($("#passwd1").val() != $("#passwd2").val()) {
+		alert("입력한 두 비밀번호가 일치하지 않습니다.");
+		$("#passwd2").focus();
+	 
+		return false;
+	}
+	 
+	if (confirm("가입하시겠습니까??")){
+	 $("#createForm").submit();
+	}else{
+	 return false;
+	} 
+	
+}
+ 
+</script>
 
 </head>
 <body>
@@ -130,43 +225,51 @@
 <!-- M_NO, M_ID, M_PW, M_NAME, GENDER, EMAIL, ADDR, GRADE -->
 <h2>회원가입 양식</h2>
 
-<form name="form1" method="post" action="/member/insert.do">
+<form name="createForm" method="post" action="/member/insert.do"   onsubmit="return fnSubmit()">
 		
 		<table border="1" style="width: 400px">
 			<tr>
 				<td>아이디</td>
-				<td><input name="memId"></td>
+				<td><input name="memId" id="memId"></td>
+				
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="passwd"></td>
+				<td><input type="password" name="passwd" id=passwd1></td>
+			</tr>
+			<tr>
+				<td>비밀번호 확인</td>
+				<td><input type="password"  id=passwd2></td>
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td><input name="memName"></td>
+				<td><input name="memName" id="memName"></td>
 			</tr>
 			<tr>
 				<td>성별</td>
-				<td><label><input type="radio" name="gender" value="0"/>남자</label>
-					<label><input type="radio" name="gender" value="1"/>여자</label></td>
+				<td><label><input type="radio" name="gender" id="gender" value="0"/>남자</label>
+					<label><input type="radio" name="gender" id="gender" value="1"/>여자</label></td>
 			</tr>
 							
 			<tr>
 				<td>이메일</td>
-				<td><input type="email" name="email"></td>
+				<td><input type="email" name="email" id="email"></td>
 				
 			</tr>
 			<tr>
 				<td>주소</td>
 				<td>
 					<input type="text" name ="postcode" id="postcode" placeholder="우편번호" readonly>
-					<input type="button"  onclick="execDaumPostcode()" value="우편번호 찾기" readonly><br>
+					<input type="button"  onclick="execDaumPostcode()" value="주소 검색" readonly><br>
 					<input type="text" name="address" id="address" placeholder="주소" readonly><br>
 					<input type="text" name="extraAddress" id="extraAddress" placeholder="상세주소" >
 				</td>
 			</tr>	
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="회원가입하기"></td>
+				<td colspan="2" align="center">
+				<input type="submit" value="회원가입하기">
+				
+				</td>
 			</tr>
 		</table>
 					
