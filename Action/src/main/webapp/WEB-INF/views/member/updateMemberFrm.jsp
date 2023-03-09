@@ -7,78 +7,52 @@
 <head>
 <%-- style --%>
 <meta charset="UTF-8">
-   <style type="text/css">
-   th{
-      width: 50px;
-   }
    <style>
-   body {
-     color: #666;
-     font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-   }
-   table {
-     border-collapse: separate;
-     border-spacing: 0;
-     width: 1000px;
-     margin: auto;
-   }
-   th,   td {
-     padding: 6px 15px;
-	color:blue
-   }
-   th {
-     background: #42444e;
-     color: #fff;
-     text-align: center;
-   }
-   tr:first-child th:first-child {
-     border-top-left-radius: 6px;
-   }
-   tr:first-child th:last-child {
-     border-top-right-radius: 6px;
-   }
-   td {
-     border-right: 1px solid #c6c9cc;
-     border-bottom: 1px solid #c6c9cc;
-   }
-   td:first-child {
-     border-left: 1px solid #c6c9cc;
-   }
-   tr:nth-child(even) td {
-     background:   #C0C0C0;
-   }
-   tr:last-child td:first-child {
-     border-bottom-left-radius: 6px;
-   }
-   tr:last-child td:last-child {
-     border-bottom-right-radius: 6px;
-   }
-   #searchDiv, #tableDiv {
-      text-align: center;
-   }
-   .writeSpan1 {
-      position: relative;
-      left: 160px;
-   }
-   .writeSpan2 {
-      position: relative;
-      left: 1010px;
-   }
-   
-   .button {
-  background-color: blue;
-  border-radius: 5%;
-  color: white;
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  
-  </style>
-
+	table {
+	  border-collapse: separate;
+	  border-spacing: 0;
+	  width: 1200px;
+	  margin: auto;
+	}
+	th,	td {
+	  padding: 6px 15px;
+	 
+	}
+	th {
+	  background: #42444e;
+	  color: #fff;
+	  text-align: center;
+	}
+	#waringSpan {
+		position: relative;
+		left:250px;
+		color: red;
+	}
+	#btns {
+		text-color: black;
+		text-align: center;
+	}
+	
+	#memId ,#memName, #email,#passwd ,#postcode, #address, #extraAddress {
+		color:black;
+	}
+	
+	
+	
+	td {
+		width: 30%;
+	}
+	
+	h2 { text-align: center; }
+	
+	.btn11 {
+	
+		border-radius: 7px;
+		background-color:white ;
+		color:black;
+		font-size:20px;
+	}
+	</style>
 <meta charset="UTF-8">
 <title>내 정보 수정</title>
 	
@@ -177,7 +151,7 @@
 		if (confirm("수정하시겠습니까??")){
 		
 			$("#createForm").submit();
-		
+			alert("회원 정보가 수정되었습니다 다시 로그인해주세요.");
 		}else{
 		 
 			return false;
@@ -185,7 +159,6 @@
 		
 	}
 	 
-	</script>
 	</script>
 	
 </head>
@@ -227,7 +200,7 @@
 			</tr>
 			<tr>
 				<td>주소</td>
-				<td><input name="address" value="${dto.address}"></td>
+				<td><input name="address" id="address"value="${dto.address}"></td>
 			</tr>
 			
 			<tr>
@@ -243,8 +216,8 @@
 			
 			<tr>
 				<td colspan="2" align="center">
-					<input type="submit" class="button" value="수정" id="btnUpdate">
-					<input type="button" class="button" value="삭제" id="btnDelete">
+					<input type="submit" class="btn11" value="수정" id="btnUpdate">
+					<input type="button"  class="btn11" value="삭제" id="btnDelete">
 					<div style="color: red"> ${message} </div>			<!--비밀번호 틀릴경우 message 출력  -->
 				</td>
 			</tr>

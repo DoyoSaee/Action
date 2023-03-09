@@ -5,13 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="include/header.jsp" %>
 <meta charset="UTF-8">
 <title>회원가입 성공</title>
 </head>
 <body>
 <form>
-<%@ include file="./include/menu.jsp" %>
 	가입해주셔서 감사합니다
 	잠시 후 메인페이지로 이동됩니다 
 	가입 하신 아이디로 로그인 후 이용해주세요!

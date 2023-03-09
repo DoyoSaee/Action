@@ -37,41 +37,7 @@
         <put-attribute name="body" value="/WEB-INF/views/home.jsp"/>    
     </definition>
     
-    <!-- 로그인페이지 -->
-    <definition name="member/login" extends="baseLayout">
-        <put-attribute name="title" value="로그인페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/login.jsp"/> 
-    </definition>
-
-    <!-- 회원가입페이지 -->
-    <definition name="member/addMemberFrm" extends="baseLayout">
-        <put-attribute name="title" value="회원가입페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/addMemberFrm.jsp"/> 
-    </definition>
-	
-	<!-- 내 정보 수정 페이지 -->
-    <definition name="member/updateMemberFrm" extends="baseLayout">
-        <put-attribute name="title" value="내 정보 수정 페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/updateMemberFrm.jsp"/> 
-    </definition>
-	
-	<!-- 회원 목록 페이지 -->
-    <definition name="member/memberListFrm" extends="baseLayout">
-        <put-attribute name="title" value="회원 목록 페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/memberListFrm.jsp"/> 
-    </definition>
     
-    <!-- id찾기  페이지 -->
-    <definition name="/member/findIdFrm" extends="baseLayout">
-        <put-attribute name="title" value="아이디 찾기 페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/findIdFrm.jsp"/> 
-    </definition>
-	
-	<!-- PW찾기  페이지 -->
-    <definition name="/member/findPasswdFrm" extends="baseLayout">
-        <put-attribute name="title" value="비밀번호 찾기 페이지"/>
-        <put-attribute name="body" value="/WEB-INF/views/member/findPasswdFrm.jsp"/> 
-    </definition>
 	
 </tiles-definitions>   
 

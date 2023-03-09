@@ -6,63 +6,51 @@
 <meta charset="UTF-8">
 <%-- style --%>
 <meta charset="UTF-8">
-   <style type="text/css">
-   th{
-      width: 50px;
-   }
    <style>
-   body {
-     color: #666;
-     font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-   }
-   table {
-     border-collapse: separate;
-     border-spacing: 0;
-     width: 2000px;
-     margin: auto;
-   }
-   th,   td {
-     padding: 6px 15px;
-   }
-   th {
-     background: #42444e;
-     color: #fff;
-     text-align: center;
-   }
-   tr:first-child th:first-child {
-     border-top-left-radius: 6px;
-   }
-   tr:first-child th:last-child {
-     border-top-right-radius: 6px;
-   }
-   td {
-     border-right: 1px solid #c6c9cc;
-     border-bottom: 1px solid #c6c9cc;
-   }
-   td:first-child {
-     border-left: 1px solid #c6c9cc;
-   }
-   tr:nth-child(even) td {
-     background:   #C0C0C0;
-   }
-   tr:last-child td:first-child {
-     border-bottom-left-radius: 6px;
-   }
-   tr:last-child td:last-child {
-     border-bottom-right-radius: 6px;
-   }
-   #searchDiv, #tableDiv {
-      text-align: center;
-   }
-   .writeSpan1 {
-      position: relative;
-      left: 160px;
-   }
-   .writeSpan2 {
-      position: relative;
-      left: 1010px;
-   }
-   </style>
+	table {
+	  border-collapse: separate;
+	  border-spacing: 0;
+	  width: 1200px;
+	  margin: auto;
+	}
+	th,	td {
+	  padding: 6px 15px;
+	 
+	}
+	th {
+	  background: #42444e;
+	  color: #fff;
+	  text-align: center;
+	}
+	#waringSpan {
+		position: relative;
+		left:250px;
+		color: red;
+	}
+	#btns {
+		text-color: black;
+		text-align: center;
+	}
+	
+	#memId ,#memName, #email,#passwd1 ,#passwd2,#postcode,#address,#extraaddress {
+		color:black;
+	}
+	
+	
+	
+	td {
+		width: 30%;
+	}
+	h2 { text-align: center; }
+	
+	.btn11 {
+	
+		border-radius: 7px;
+		background-color:white ;
+		color:black;
+		font-size:20px;
+	}
+	</style>
 
 <title>회원가입</title>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -115,7 +103,7 @@
     }
 </script>
 
-<%--id중복, 비밀번호 확인 유효성 검사 처리 --%>
+<%-- 유효성 검사 처리 --%>
 <script>
 var path = "${pageContext.request.contextPath }";
  
@@ -211,6 +199,7 @@ function fnSubmit() {
 	 
 	if (confirm("가입하시겠습니까??")){
 	 $("#createForm").submit();
+	 alert("가입 성공.로그인 페이지로 이동합니다.");
 	}else{
 	 return false;
 	} 
@@ -218,24 +207,26 @@ function fnSubmit() {
 }
  
 </script>
+<style>
+
+</style>
 
 </head>
 <body>
 <section class="bg">
-<!-- M_NO, M_ID, M_PW, M_NAME, GENDER, EMAIL, ADDR, GRADE -->
-<h2>회원가입 양식</h2>
+<h2 >회원가입 양식</h2>
 
 <form name="createForm" method="post" action="/member/insert.do"   onsubmit="return fnSubmit()">
 		
 		<table border="1" style="width: 400px">
 			<tr>
 				<td>아이디</td>
-				<td><input name="memId" id="memId"></td>
+				<td><input name="memId" id="memId" ></td>
 				
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="passwd" id=passwd1></td>
+				<td><input type="password" name="passwd" id=passwd1 ></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td>
@@ -260,14 +251,14 @@ function fnSubmit() {
 				<td>주소</td>
 				<td>
 					<input type="text" name ="postcode" id="postcode" placeholder="우편번호" readonly>
-					<input type="button"  onclick="execDaumPostcode()" value="주소 검색" readonly><br>
+					<input type ="button" class="btn11" onclick="execDaumPostcode()" value="주소 검색" readonly><br>
 					<input type="text" name="address" id="address" placeholder="주소" readonly><br>
 					<input type="text" name="extraAddress" id="extraAddress" placeholder="상세주소" >
 				</td>
 			</tr>	
 			<tr>
 				<td colspan="2" align="center">
-				<input type="submit" value="회원가입하기">
+				<input type="submit" class="btn11" value="회원가입하기">
 				
 				</td>
 			</tr>

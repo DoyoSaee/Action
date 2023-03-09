@@ -54,7 +54,7 @@ public class MemberController {
 
 		if (insertMember == 1) {
 
-			return "/member/addSuccess";
+			return "redirect:/login";
 
 		} else {
 			model.addAttribute("message", "회원가입 실패. 다시 시도해주세요.");
@@ -73,7 +73,7 @@ public class MemberController {
 	}
 
 	
-	  // 회원 수정
+	  // 회원 정보 수정 (get)
 	  
 	  @RequestMapping(value="/member/update.do", method=RequestMethod.GET) // get
 	  public String updateFrm(@RequestParam String memId, Model model) {
@@ -93,7 +93,6 @@ public class MemberController {
 
 		if (result) {
 			memberService.updateMember(dto);
-			model.addAttribute("message", "회원정보가 수정되었습니다! 다시 로그인해주세요.");
 			memberService.logout(session); 
 			return "redirect:/member/login.do";
 
@@ -220,4 +219,9 @@ public class MemberController {
 		}
 	}
 
+	
 }
+
+	
+
+

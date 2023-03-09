@@ -178,8 +178,8 @@ input {
 				<input type="password" placeholder="Password" name="passwd" style="    color: black;"/> 
 				<p>
 				<a class="ak"href="/member/write.do" > 회원가입 /</a>
-				<a class="ak"href="/member/findIdFrm" > 아이디찾기 /</a>
-				<a class="ak"href="/member/findPasswdFrm">비밀번호찾기</a>
+				<a class="ak"href="/member/findId" > 아이디찾기 /</a>
+				<a class="ak"href="/member/findPasswd">비밀번호찾기</a>
 				</p>
 				
 				<button style="cursor: pointer;" id="btnLogin">Log In</button>
