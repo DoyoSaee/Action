@@ -1,63 +1,63 @@
 [
   {
     "month": "1월",
-    "kyobo": 64854,
-    "EBS": 32652
+    "kyobo": 6485,
+    "EBS": 3265
   },
   {
     "month": "2월",
-    "kyobo": 54628,
-    "EBS": 42393
+    "kyobo": 5468,
+    "EBS": 4239
   },
   {
     "month": "3월",
-    "kyobo": 117238,
-    "EBS": 50262
+    "kyobo": 11728,
+    "EBS": 5026
   },
   {
     "month": "4월",
-    "kyobo": 82830,
-    "EBS": 64731
+    "kyobo": 8280,
+    "EBS": 6473
   },
   {
     "month": "5월",
-    "kyobo": 91208,
-    "EBS": 41893
+    "kyobo": 9128,
+    "EBS": 4189
   },
   {
     "month": "6월",
-    "kyobo": 103609,
-    "EBS": 83809
+    "kyobo": 10360,
+    "EBS": 8380
   },
   {
     "month": "7월",
-    "kyobo": 90974,
-    "EBS": 44772
+    "kyobo": 9094,
+    "EBS": 4477
   },
   {
     "month": "8월",
-    "kyobo": 82919,
-    "EBS": 37590
+    "kyobo": 8919,
+    "EBS": 3759
   },
   {
     "month": "9월",
-    "kyobo": 62407,
-    "EBS": 43349
+    "kyobo": 6247,
+    "EBS": 4334
   },
   {
     "month": "10월",
-    "kyobo": 82528,
-    "EBS": 45324
+    "kyobo": 8258,
+    "EBS": 4532
   },
   {
     "month": "11월",
-    "kyobo": 56979,
-    "EBS": 47978
+    "kyobo": 5699,
+    "EBS": 4797
   },
   {
     "month": "12월",
-    "kyobo": 87436,
-    "EBS": 39175
+    "kyobo": 8736,
+    "EBS": 3917
   }
 
 ]
